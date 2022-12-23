@@ -1,0 +1,8 @@
+let
+    Source = Json.Document(Web.Contents("https://data.gov.sg/api/action/datastore_search?resource_id=f5542e9d-58d5-48dc-b8c6-4ba692318b41")),
+    result = Source[result],
+    records = result[records],
+    #"Converted to Table" = Table.FromList(records, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"area", "_id", "domestic_exports", "year"}, {"Column1.area", "Column1._id", "Column1.domestic_exports", "Column1.year"})
+in
+    #"Expanded Column1"
