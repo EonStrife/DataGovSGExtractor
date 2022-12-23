@@ -1,0 +1,2 @@
+This is a sample Jupyter Notebook for extracting data from https://data.gov.sg into Panda Dataframe.
+The sample code extracts Domestic Exports by Area (https://data.gov.sg/dataset/domestic-exports-by-area).
